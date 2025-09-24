@@ -4,7 +4,7 @@ import glob
 from pupil_apriltags import Detector
 import os
 
-CHECKERBOARD_SQUARES = (7, 6)      # Number of internal corners w*h
+CHECKERBOARD_SQUARES = (8, 6)      # Number of internal corners w*h
 TAG_SIZE_METERS = 0.1651        # Physical size of the AprilTag's black square.
 CALIBRATION_FILE = 'calibration_results.npy' # File with calibration data.
 
@@ -47,9 +47,6 @@ def capture_images(cap): #Used to capture calibration data
         if not success:
             print("Failed to grab frame.")
             break
-
-        text = f"Press 'w' to capture ({capture_count}/{max_captures}) | 'q' to save and quit"
-        cv2.putText(frame, text, (10, 30), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0, 255, 0), 2)
         
         cv2.imshow('Calibration Capture', frame)
 
